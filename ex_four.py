@@ -7,12 +7,12 @@ Saída Esperada:
 
 lista_one = [1, 5, 3, 9, 2]
 
-def sum_list(lista):
-    if len(lista) == 1:
-        return lista[0]
-    item = sum_list(lista[1:])
-    # item_enumerate = sum_list(enumerate(lista))
-    return lista[0] if lista[0] > item else item
+def indice_maior_elemento(lista, indice=0, maior_indice=0):
+    if indice == len(lista):
+        return maior_indice
+    if lista[indice] > lista[maior_indice]:
+        maior_indice = indice
+    return indice_maior_elemento(lista, indice + 1, maior_indice)
 
-result = sum_list(lista_one)
-print(result)
+resultado = indice_maior_elemento(lista_one)
+print(resultado)
